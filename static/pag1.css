@@ -39,8 +39,6 @@ left:0;
 width:100%;
 height:100%;
 
-background:rgba(0,0,0,0.65);
-
 z-index:0;
 
 }
@@ -95,7 +93,7 @@ z-index:1;
 
 width:400px;
 
-background:rgba(0,0,0,0.75);
+background:rgba(143, 136, 205, 0.667);
 
 border:2px solid white;
 
@@ -104,37 +102,6 @@ padding:30px;
 transition:0.4s;
 
 position:relative;
-
-}
-
-
-/* POSIÇÕES IRREGULARES */
-
-.text-card:nth-child(odd){
-
-transform:rotate(-3deg);
-
-}
-
-.text-card:nth-child(even){
-
-transform:rotate(3deg);
-
-}
-
-
-/* HOVER DRAMÁTICO */
-
-.text-card:hover{
-
-transform:scale(1.1) rotate(0deg);
-
-box-shadow:
-
-0 0 20px white,
-0 0 40px white;
-
-z-index:2;
 
 }
 
@@ -189,90 +156,7 @@ background:white;
 color:black;
 
 }
-.visitor-log{
 
-margin-top:120px;
-
-width:600px;
-max-width:90%;
-
-display:flex;
-flex-direction:column;
-gap:15px;
-
-align-items:center;
-
-background:rgba(0,0,0,0.6);
-
-padding:30px;
-
-border:1px solid #00eaff;
-
-border-radius:10px;
-
-}
-
-.visitor-log h2{
-
-color:#00eaff;
-
-letter-spacing:4px;
-
-}
-
-.visitor-log textarea{
-
-background:black;
-
-border:1px solid #00eaff;
-
-color:white;
-
-padding:10px;
-
-height:80px;
-
-resize:none;
-
-}
-
-.visitor-log button{
-
-background:none;
-
-border:1px solid #00eaff;
-
-color:#00eaff;
-
-padding:10px;
-
-cursor:pointer;
-
-}
-
-.visitor-log button:hover{
-
-background:#00eaff;
-
-color:black;
-
-}
-
-#messages{
-
-margin-top:20px;
-
-font-family:monospace;
-
-}
-
-.message{
-
-margin-bottom:10px;
-
-color:#00ff9c;
-
-}
 .site-title{
 
 position:relative;
