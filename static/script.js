@@ -81,3 +81,35 @@ card.style.transform = "rotateX(0) rotateY(0)";
 });
 
 });
+let travado = false;
+
+function ativarMemoria() {
+    if (travado) return;
+
+    const img = document.getElementById("mainImg");
+    const btn = document.getElementById("actionBtn");
+
+    // troca imagem
+    img.src = "../static/Imagens/waifu2.jpg";
+
+    // trava botão
+    btn.disabled = true;
+    travado = true;
+
+    // volta depois de 10s
+    setTimeout(() => {
+        img.src = "../static/Imagens/waifu3.jpg";
+        btn.disabled = false;
+        travado = false;
+    }, 5000);
+}
+
+
+// SCROLL DA GALERIA
+function scrollGallery(direction) {
+    const gallery = document.getElementById("gallery");
+    gallery.scrollBy({
+        left: 120 * direction,
+        behavior: "smooth"
+    });
+}
