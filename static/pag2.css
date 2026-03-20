@@ -1,0 +1,149 @@
+body{
+min-height:100vh;
+width:100%;
+
+background-image:url("../Imagens/Fundo.png");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+padding:120px 40px;
+
+position:relative;
+
+text-align: center; 
+
+background:
+linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+url("../static/Imagens/Fundo.png");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+}
+
+.hobbies-title{
+text-align:center;
+
+font-size:70px;
+
+color:black;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+text-shadow:
+
+4px 4px 0 #ffcc00,
+8px 8px 0 black;
+
+margin-bottom:100px;
+
+}
+
+.hobby-section{
+
+margin-bottom:120px;
+
+}
+
+.hobby-section h2{
+
+font-size:30px;
+
+letter-spacing:6px;
+
+margin-bottom:40px;
+
+}
+
+.hobby-grid{
+
+display:flex;
+
+gap:40px;
+
+flex-wrap:wrap;
+
+}
+
+.hobby-card{
+
+
+width:220px;
+
+background:white;
+
+border:4px solid black;
+
+box-shadow:10px 10px 0 black;
+
+padding:10px;
+
+text-align:center;
+
+font-size:30px;
+
+color:black;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+text-shadow:
+
+1px 1px 0 #4b58e7,
+4px 4px 0 black;
+
+margin-bottom:100px;
+
+}
+
+.hobby-card:hover{
+
+transform:translate(-6px,-6px);
+
+box-shadow:20px 20px 0 black;
+
+}
+
+.hobby-card:nth-child(even){
+
+transform:rotate(3deg);
+
+}
+
+.hobby-card img{
+
+width:100%;
+
+border:2px solid white;
+
+}
+
+.hobby-card p{
+
+margin-top:10px;
+
+letter-spacing:2px;
+
+}
+
+.hobby-card:hover{
+
+transform:scale(1.1) rotate(0deg);
+
+box-shadow:
+
+0 0 20px rgb(171, 9, 200),
+0 0 40px rgba(163, 0, 185, 0.804);
+
+}
+

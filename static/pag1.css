@@ -1,0 +1,307 @@
+/* PAG1 BACKGROUND */
+
+.pag1-bg{
+
+min-height:100vh;
+width:100%;
+
+background-image:url("../static/Imagens/fundo2.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+padding:120px 40px;
+
+position:relative;
+
+text-align: center; 
+
+}
+
+
+/* CAMADA ESCURA PARA LEITURA */
+
+.pag1-bg::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.65);
+
+z-index:0;
+
+}
+
+
+/* TITULO DA PAGINA */
+
+.pag1-title{
+
+position:relative;
+
+font-size:70px;
+
+letter-spacing:6px;
+
+margin-bottom:80px;
+
+z-index:1;
+
+text-shadow:
+
+0 0 10px white,
+0 0 30px white;
+
+}
+
+
+/* GALERIA */
+
+.text-gallery{
+
+position:relative;
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:60px;
+
+max-width:1100px;
+
+z-index:1;
+
+}
+
+
+/* CARD DE TEXTO */
+
+.text-card{
+
+width:400px;
+
+background:rgba(0,0,0,0.75);
+
+border:2px solid white;
+
+padding:30px;
+
+transition:0.4s;
+
+position:relative;
+
+}
+
+
+/* POSIÇÕES IRREGULARES */
+
+.text-card:nth-child(odd){
+
+transform:rotate(-3deg);
+
+}
+
+.text-card:nth-child(even){
+
+transform:rotate(3deg);
+
+}
+
+
+/* HOVER DRAMÁTICO */
+
+.text-card:hover{
+
+transform:scale(1.1) rotate(0deg);
+
+box-shadow:
+
+0 0 20px white,
+0 0 40px white;
+
+z-index:2;
+
+}
+
+
+/* TITULO DO TEXTO */
+
+.text-card h2{
+
+font-size:24px;
+
+margin-bottom:15px;
+
+letter-spacing:2px;
+
+}
+
+
+/* RESUMO */
+
+.text-card p{
+
+opacity:0.85;
+
+margin-bottom:20px;
+
+line-height:1.4;
+
+}
+
+
+/* BOTÃO */
+
+.text-card a{
+
+text-decoration:none;
+
+border:1px solid white;
+
+padding:8px 20px;
+
+display:inline-block;
+
+transition:0.3s;
+
+}
+
+
+.text-card a:hover{
+
+background:white;
+
+color:black;
+
+}
+.visitor-log{
+
+margin-top:120px;
+
+width:600px;
+max-width:90%;
+
+display:flex;
+flex-direction:column;
+gap:15px;
+
+align-items:center;
+
+background:rgba(0,0,0,0.6);
+
+padding:30px;
+
+border:1px solid #00eaff;
+
+border-radius:10px;
+
+}
+
+.visitor-log h2{
+
+color:#00eaff;
+
+letter-spacing:4px;
+
+}
+
+.visitor-log textarea{
+
+background:black;
+
+border:1px solid #00eaff;
+
+color:white;
+
+padding:10px;
+
+height:80px;
+
+resize:none;
+
+}
+
+.visitor-log button{
+
+background:none;
+
+border:1px solid #00eaff;
+
+color:#00eaff;
+
+padding:10px;
+
+cursor:pointer;
+
+}
+
+.visitor-log button:hover{
+
+background:#00eaff;
+
+color:black;
+
+}
+
+#messages{
+
+margin-top:20px;
+
+font-family:monospace;
+
+}
+
+.message{
+
+margin-bottom:10px;
+
+color:#00ff9c;
+
+}
+.site-title{
+
+position:relative;
+
+text-align:center;
+
+margin-top:40px;
+
+font-size:40px;
+
+letter-spacing:6px;
+
+color:#00eaff;
+
+}
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0, 0, 0, 0.55);
+
+z-index:-1;
+
+}
