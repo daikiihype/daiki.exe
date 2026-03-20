@@ -1,0 +1,58 @@
+body {
+    background-image: url("../static/Imagens/fundo1.gif");
+    background-position: center;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #000000;
+
+    padding: 10px;
+    border-bottom: 9px solid rgba(255, 135, 221, 0.519);
+}
+
+/* GALERIA */
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.images {
+    display: flex;
+    overflow: hidden;
+    width: 300px;
+}
+
+.images img {
+    width: 100px;
+    margin: 5px;
+}
+
+/* IMAGEM PRINCIPAL */
+.main-image img {
+    position: center;
+    width: 444px;
+    height: 500px;
+    border: 4px solid rgba(161, 76, 137, 0.785);
+    margin: 0px
+}
+
+/* BOTÃO */
+button {
+    padding: 11px;
+    background: #d573ff96;
+    color: #000000d3;
+    border: 2px solid rgba(255, 135, 221, 0.519);
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.main-image img {
+    transition: 0.5s;
+}

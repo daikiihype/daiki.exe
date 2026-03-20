@@ -1,0 +1,191 @@
+/* PAG1 BACKGROUND */
+
+.pag1-bg{
+
+min-height:100vh;
+width:100%;
+
+background-image:url("../static/Imagens/fundo2.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+padding:120px 40px;
+
+position:relative;
+
+text-align: center; 
+
+}
+
+
+/* CAMADA ESCURA PARA LEITURA */
+
+.pag1-bg::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+z-index:0;
+
+}
+
+
+/* TITULO DA PAGINA */
+
+.pag1-title{
+
+position:relative;
+
+font-size:70px;
+
+letter-spacing:6px;
+
+margin-bottom:80px;
+
+z-index:1;
+
+text-shadow:
+
+0 0 10px white,
+0 0 30px white;
+
+}
+
+
+/* GALERIA */
+
+.text-gallery{
+
+position:relative;
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:60px;
+
+max-width:1100px;
+
+z-index:1;
+
+}
+
+
+/* CARD DE TEXTO */
+
+.text-card{
+
+width:400px;
+
+background:rgba(143, 136, 205, 0.667);
+
+border:2px solid white;
+
+padding:30px;
+
+transition:0.4s;
+
+position:relative;
+
+}
+
+
+/* TITULO DO TEXTO */
+
+.text-card h2{
+
+font-size:24px;
+
+margin-bottom:15px;
+
+letter-spacing:2px;
+
+}
+
+
+/* RESUMO */
+
+.text-card p{
+
+opacity:0.85;
+
+margin-bottom:20px;
+
+line-height:1.4;
+
+}
+
+
+/* BOTÃO */
+
+.text-card a{
+
+text-decoration:none;
+
+border:1px solid white;
+
+padding:8px 20px;
+
+display:inline-block;
+
+transition:0.3s;
+
+}
+
+
+.text-card a:hover{
+
+background:white;
+
+color:black;
+
+}
+
+.site-title{
+
+position:relative;
+
+text-align:center;
+
+margin-top:40px;
+
+font-size:40px;
+
+letter-spacing:6px;
+
+color:#00eaff;
+
+}
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0, 0, 0, 0.55);
+
+z-index:-1;
+
+}
