@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../static/lab.css">
+
+<title>DAIKI LAB</title>
+
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<h1 class="lab-title">DAIKI LAB</h1>
+
+<section class="lab-section">
+
+<h2>BOTÕES EXPERIMENTAIS</h2>
+
+<button class="neon-btn">HYPE</button>
+
+</section>
+
+<section class="lab-section">
+
+<h2>CARDS INTERATIVOS</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>Experimento 01</h3>
+<p>Testando interações 3D com CSS.</p>
+</div>
+
+<div class="card">
+<h3>Experimento 02</h3>
+<p>Movimento baseado na posição do mouse.</p>
+</div>
+
+<div class="card">
+<h3>Experimento 03</h3>
+<p>Efeitos visuais para interfaces modernas.</p>
+</div>
+
+</div>
+
+</section>
+<script>
+    
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+card.addEventListener("mousemove", (e)=>{
+
+const rect = card.getBoundingClientRect();
+
+const x = e.clientX - rect.left;
+
+const y = e.clientY - rect.top;
+
+const centerX = rect.width / 2;
+const centerY = rect.height / 2;
+
+const rotateX = -(y - centerY) / 10;
+const rotateY = (x - centerX) / 10;
+
+card.style.transform =
+`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+});
+
+card.addEventListener("mouseleave", ()=>{
+
+card.style.transform = "rotateX(0) rotateY(0)";
+
+});
+
+});
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+
+particlesJS("particles-js", {
+
+particles:{
+
+number:{value:80},
+
+size:{value:3},
+
+move:{speed:2},
+
+line_linked:{
+enable:true,
+distance:150
+}
+
+}
+
+});
+
+</script>
+
+<section class="lab-section">
+
+<h2>GLITCH TEXT</h2>
+
+<h1 class="glitch" data-text="DAIKI SYSTEM">
+DAIKI SYSTEM
+</h1>
+
+</section>
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+body{
+
+background-image: url("../static/Imagens/fundo4.png");
+background-size: cover;
+background-position: center;
+background-attachment: fixed; 
+color:rgb(255, 255, 255);
+
+font-family:monospace;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+height:100vh;
+
+}
+
+.title{
+
+font-size:70px;
+
+letter-spacing:10px;
+
+margin-bottom:60px;
+
+}
+
+.menu{
+
+display:flex;
+
+flex-direction:column;
+
+gap:25px;
+
+}
+.menu-btn{
+
+text-decoration:none;
+
+color:#00ffff;
+
+border:2px solid #00ffff;
+
+padding:15px 50px;
+
+font-size:22px;
+
+text-align:center;
+
+transition:0.3s;
+
+}
+
+.menu-btn:hover{
+
+background:#00ffff;
+
+color:black;
+
+box-shadow:
+
+0 0 10px #00ffff,
+0 0 30px #00ffff,
+0 0 60px #00ffff;
+
+transform:scale(1.1);
+
+}
+#transition{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:black;
+
+transform:scaleY(0);
+
+transform-origin:top;
+
+transition:0.6s;
+
+z-index:999;
+
+}
+#transition.active{
+
+transform:scaleY(1);
+
+}
+#transition.active{
+
+transform:scaleY(1);
+
+}
+.selector{
+
+opacity:0;
+
+margin-right:10px;
+
+transition:0.2s;
+
+}
+.menu-btn:hover .selector{
+
+opacity:1;
+
+color:#000000;
+
+}

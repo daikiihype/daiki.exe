@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../static/game.css">
+
+<title>DAIKI GAME</title>
+
+</head>
+<body>
+
+<h1 class="title">Menu De Escolha</h1>
+
+<div class="menu">
+
+<a href="pag1.html" class="menu-btn"
+><span class="selector">></span>Isso</a>
+
+<a href="pag2.html" class="menu-btn"><span class="selector">></span>realmente</a>
+
+<a href="lab.html" class="menu-btn"><span class="selector">></span>brilha</a>
+
+<a href="system.html" class="menu-btn"><span class="selector">></span>tanto?</a>
+
+</div>
+<div id="transition"></div>
+</body>
+<script>
+
+const links = document.querySelectorAll(".menu-btn");
+
+const transition = document.getElementById("transition");
+
+links.forEach(link => {
+
+link.addEventListener("click", function(e){
+
+e.preventDefault();
+
+let url = this.href;
+
+transition.classList.add("active");
+
+setTimeout(()=>{
+
+window.location = url;
+
+},600);
+
+});
+
+});
+
+</script>
+
+</html>
+
+

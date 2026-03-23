@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="../static/retro.css">
+
+<title>DAIKI OS</title>
+
+</head>
+
+<body>
+
+<div class="window">
+
+<div class="title-bar">
+
+<span>ANIME.EXE</span>
+
+<div class="buttons">
+
+<button class="minimize">_</button>
+
+<button class="close">X</button>
+
+</div>
+
+</div>
+<div class="content">
+
+<img src="../static/Imagens/waifu4.jpg" width="300">
+
+<p>Sistema de visualização ativo</p>
+
+</div>
+
+</div>
+
+
+<div class="desktop">
+
+<div class="icon" onclick="openWindow('animeWindow')">
+<img src="../static/Imagens/dio.png">
+<p>Za Warudo.exe</p>
+</div>
+
+<div class="icon" onclick="openWindow('musicWindow')">
+<img src="../static/Imagens/giorno.png">
+<p>Golden Experience.exe</p>
+</div>
+
+<div class="icon" onclick="openWindow('musicWindow')">
+<img src="../static/Imagens/gyro.png">
+<p>Steel Ball Run.exe</p>
+</div>
+
+<div class="icon" onclick="openWindow('musicWindow')">
+<img src="../static/Imagens/trunks.png">
+<p>Super Saiyajin.exe</p>
+</div>
+
+
+</div>
+
+
+<!-- janela anime -->
+
+<div id="animeWindow" class="window">
+
+<div class="title-bar">
+
+<span>ANIME.EXE</span>
+
+<div class="buttons">
+
+<button onclick="minimize(this)">_</button>
+<button onclick="closeWindow(this)">X</button>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<p>Galeria de animes aqui</p>
+
+</div>
+
+</div>
+
+<script src="retro.js"></script>
+</body>
+
+</html>
