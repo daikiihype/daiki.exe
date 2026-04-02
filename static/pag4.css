@@ -1,233 +1,135 @@
 body{
 
-background:#050505;
-
+background:rgb(0, 0, 0);
 color:white;
-
-font-family:monospace;
-
-padding:80px;
-
+font-family:Arial;
 text-align:center;
 
 }
 
-.lab-title{
+.titulo{
 
-font-size:60px;
-
-letter-spacing:8px;
-
-margin-bottom:80px;
-
-}
-
-.lab-section{
-
-margin-top:60px;
-
-}
-.neon-btn{
-
-padding:15px 40px;
-
-background:transparent;
-
-border:2px solid #00e5ff;
-
-color:#00e5ff;
-
-font-size:18px;
-
-cursor:pointer;
-
-transition:0.3s;
-
-box-shadow:0 0 10px #00e5ff;
-
-}
-
-.neon-btn:hover{
-
-background:#00e5ff;
-
-color:black;
-
-box-shadow:
-
-0 0 10px #00e5ff,
-0 0 30px #00e5ff,
-0 0 60px #00e5ff;
-
-}
-body{
-
-background:black;
-
-color:white;
-
-font-family:monospace;
-
-margin:0;
-
-min-height:200vh;
-
-text-align:center;
-
-}
-
-/* titulo */
-
-.hub-title{
-
-font-size:70px;
-
-letter-spacing:10px;
-
-margin-top:80px;
-
-margin-bottom:100px;
-
-}
-
-/* container */
-
-.hub-container{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:120px;
-
-}
-
-/* cards */
-
-.hub-card{
-
-width:300px;
-
-padding:60px;
-
-border:2px solid cyan;
-
-text-decoration:none;
-
-color:white;
-
-transition:0.4s;
-
-font-size:20px;
-
-box-shadow:0 0 10px cyan;
-
-}
-
-/* hover */
-
-.hub-card:hover{
-
-background:cyan;
-
-color:black;
-
-box-shadow:
-
-0 0 20px cyan,
-0 0 50px cyan,
-0 0 100px cyan;
-
-transform:scale(1.05);
-
-}
-#particles-js{
-
-position:fixed;
-
-width:100%;
-
-height:100%;
-
-top:0;
-
-left:0;
-
-z-index:-1;
-
-background:#050505;
-
-}
-.glitch{
-
-font-size:60px;
-
-font-weight:bold;
-
-position:relative;
-
-color:white;
-
+margin-top:30px;
 letter-spacing:4px;
 
 }
 
-.glitch::before,
-.glitch::after{
+.cenario{
 
-content:attr(data-text);
+position:relative;
+width:all;
+margin:auto;
 
-position:absolute;
+}
 
-left:0;
-
-top:0;
+.background{
 
 width:100%;
 
-overflow:hidden;
+}
+
+
+.item{
+
+position:absolute;
+width:80px;
+cursor:pointer;
+transition:0.2s;
 
 }
 
-.glitch::before{
+.item:hover{
 
-color:#00ffff;
-
-z-index:-1;
-
-animation:glitch1 2s infinite;
+transform:scale(1.2);
+filter:drop-shadow(0 0 10px cyan);
 
 }
 
-.glitch::after{
 
-color:#ff00ff;
 
-z-index:-2;
+/* POSIÇÃO DOS ITENS */
 
-animation:glitch2 2s infinite;
+.controle{
 
-}
-@keyframes glitch1{
-
-0%{transform:translate(0);}
-20%{transform:translate(-3px,2px);}
-40%{transform:translate(-3px,-2px);}
-60%{transform:translate(3px,2px);}
-80%{transform:translate(3px,-2px);}
-100%{transform:translate(0);}
+bottom:679px;
+left:900px;
 
 }
 
-@keyframes glitch2{
+.manga{
 
-0%{transform:translate(0);}
-20%{transform:translate(3px,-2px);}
-40%{transform:translate(3px,2px);}
-60%{transform:translate(-3px,-2px);}
-80%{transform:translate(-3px,2px);}
-100%{transform:translate(0);}
+bottom:120px;
+left:260px;
+
+}
+
+.bombinha{
+
+bottom:120px;
+right:250px;
+
+}
+
+.poster{
+
+top:100px;
+left:350px;
+
+}
+
+.notebook{
+
+bottom:120px;
+right:120px;
+
+}
+
+
+
+/* DIALOGO */
+
+.dialog{
+
+position:fixed;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+
+width:500px;
+background:#111;
+border:2px solid cyan;
+padding:20px;
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+.choices{
+
+margin-top:15px;
+display:flex;
+flex-direction:column;
+gap:10px;
+
+}
+
+.choices button{
+
+background:black;
+color:white;
+border:1px solid cyan;
+padding:10px;
+cursor:pointer;
+
+}
+
+.choices button:hover{
+
+background:cyan;
+color:black;
 
 }
