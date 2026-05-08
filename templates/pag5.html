@@ -2,68 +2,78 @@
 <html>
 
 <head>
-
 <link rel="stylesheet" href="../static/pag5.css">
-
 <title>DAIKI OS</title>
-
 </head>
 
 <body>
 
-<div class="window">
-
-<div class="title-bar">
-
-<span>ANIME.EXE</span>
-
-<div class="buttons">
-
-<button class="minimize">_</button>
-
-<button class="close">X</button>
-
-</div>
-
-</div>
-<div class="content">
-
-<img src="../static/Imagens/waifu4.jpg" width="300">
-
-<p>Sistema de visualização ativo</p>
-
-</div>
-
-</div>
-
-
 <div class="desktop">
 
-<div class="icon" onclick="openWindow('animeWindow')">
+<div class="icon" 
+style="top:20px; left:120px;"
+onclick="openWindow('animeWindow')">
 <img src="../static/Imagens/dio.png">
 <p>Za Warudo.exe</p>
 </div>
 
-<div class="icon" onclick="openWindow('musicWindow')">
+<div class="icon" 
+style="top:200px; left:500px;"
+onclick="openWindow('giornoWindow')">
 <img src="../static/Imagens/giorno.png">
 <p>Golden Experience.exe</p>
 </div>
 
-<div class="icon" onclick="openWindow('musicWindow')">
+<div class="icon" onclick="openWindow('gyroWindow')"
+ style="top:290px; left:1200px;">
 <img src="../static/Imagens/gyro.png">
 <p>Steel Ball Run.exe</p>
 </div>
 
-<div class="icon" onclick="openWindow('musicWindow')">
+<div class="icon" onclick="openWindow('trunksWindow')"
+ style="top:380px; left:1200px;">
 <img src="../static/Imagens/trunks.png">
 <p>Super Saiyajin.exe</p>
 </div>
 
+<div class="icon" 
+style="top:400px; left:78px;"
+onclick="openWindow('ichigoWindow')">
+<img src="../static/Imagens/ichigo.png">
+<p>Bleach.exe</p>
+</div>
+
+<div class="icon" onclick="openWindow('shinjiWindow')" 
+style="top:490px; left:78px;">
+<img src="../static/Imagens/shinj2.png">
+<p>Shinji.exe</p>
+</div>
+
+<div class="icon"
+style="top:20px; left:650px;"
+ onclick="openWindow('berserkWindow')">
+<img src="../static/Imagens/guts.png">
+<p>Berserk.exe</p>
+</div>
+
+<div class="icon" onclick="openWindow('vagaWindow')" 
+style="top:580px; left:78px;">
+<img src="../static/Imagens/musashi2.png">
+<p>Vagabound.exe</p>
+</div>
+
+<div class="icon" 
+style="top:500px; left:500px;"
+onclick="openWindow('whoWindow')">
+<img src="../static/Imagens/who iam.jpg">
+<p>Who Am I?.exe</p>
+</div>
 
 </div>
 
+</div>
 
-<!-- janela anime -->
+<!-- JANELA -->
 
 <div id="animeWindow" class="window">
 
@@ -72,8 +82,29 @@
 <span>ANIME.EXE</span>
 
 <div class="buttons">
+<button onclick="minimize(this)">_</button>
+<button onclick="closeWindow(this)">X</button>
+</div>
+
+</div>
+
+<div class="content">
+<img src="../static/Imagens/waifu4.jpg" width="300">
+<p>Sistema de visualização ativo</p>
+</div>
+
+</div>
+
+<div id="berserkWindow" class="window">
+
+<div class="title-bar">
+
+<span>BERSERK.EXE</span>
+
+<div class="buttons">
 
 <button onclick="minimize(this)">_</button>
+
 <button onclick="closeWindow(this)">X</button>
 
 </div>
@@ -82,13 +113,41 @@
 
 <div class="content">
 
-<p>Galeria de animes aqui</p>
+<img src="../static/Imagens/gaara.png" width="300">
+
+<p>Nada proverá do ressentimento</p>
 
 </div>
 
 </div>
 
-<script src="retro.js"></script>
+<div id="whoWindow" class="window">
+
+<div class="title-bar">
+
+<span>WHO AM I?.EXE</span>
+
+<div class="buttons">
+
+<button onclick="minimize(this)">_</button>
+
+<button onclick="closeWindow(this)">X</button>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<img src="../static/Imagens/spike.png" width="300">
+
+<p>eu...esqueci quem sou</p>
+
+</div>
+
+</div>
+
+<script src="../static/pag5.js"></script>
+
 </body>
-
 </html>

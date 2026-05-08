@@ -1,221 +1,100 @@
 body{
-
 background-image:url("../static/Imagens/waifu5.jpg");
-background-size: center;
-
-
+background-size:cover;
+background-position:center;
 font-family:monospace;
-
-height:200vh;
-
+height:100vh;
+overflow:hidden;
+margin:0;
 }
 
-/* janela */
+/* desktop */
 
-.window{
+.desktop{
 
-width:320px;
+position:relative;
 
-background:#44ff2b7b;
+width:100vw;
+height:100vh;
 
-border:2px solid black;
+
+grid-template-columns:repeat(auto-fill, 90px);
+
+grid-template-rows:repeat(auto-fill, 100px);
+
+grid-auto-flow:column;
+
+gap:20px;
+
+padding:20px;
+
+height:100vh;
+
+align-content:start;
+
+}
+/* ícones */
+
+.icon{
 
 position:absolute;
 
-top:100px;
+width:80px;
 
-left:100px;
-
-box-shadow:4px 4px black;
-
-}
-
-/* barra superior */
-
-.title-bar{
-
-background:#000080;
+text-align:center;
 
 color:white;
 
-padding:5px;
+cursor:pointer;
 
-display:flex;
-
-justify-content:space-between;
-
-cursor:move;
+user-select:none;
 
 }
 
+.icon img{
+
+width:48px;
+
+image-rendering:pixelated;
+
+}
+/* janela */
+
+.window{
+width:320px;
+background:#c0c0c0;
+border:2px solid black;
+position:absolute;
+top:150px;
+left:200px;
+display:none;
+box-shadow:4px 4px black;
+user-select:none;
+}
+
+/* barra */
+
+.title-bar{
+background:#000080;
+color:white;
+padding:5px;
+display:flex;
+justify-content:space-between;
+cursor:move;
+}
+
+/* botões */
+
 .buttons button{
-
-background:#6cff43a8;
-
+background:#c0c0c0;
 border:1px solid black;
-
 cursor:pointer;
-
 }
 
 /* conteúdo */
 
 .content{
-
 padding:10px;
-
-background:#ffffffa8;
-background:linear-gradient(45deg, #6cff43 25%, transparent 25%),
-linear-gradient-45deg, hsla(0, 0%, 100%, 0.659) 25%, transparent 25%
-
-}
-
-/* desktop */
-
-.desktop{
-
-display:flex;
-
-flex-direction:column;
-
-gap:20px;
-
-padding:20px;
-
-}
-
-/* ícones */
-
-.icon{
-
-width:80px;
-
-text-align:center;
-
-color:white;
-
-cursor:pointer;
-
-}
-
-.icon img{
-
-width:48px;
-
-}
-.window{
-
-width:300px;
-
-background:#c0c0c0;
-
-border:2px solid black;
-
-position:absolute;
-
-top:150px;
-
-left:200px;
-
-display:none;
-
-}
-
-.title-bar{
-
-background:#000080;
-
-color:white;
-
-padding:5px;
-
-display:flex;
-
-justify-content:space-between;
-
-cursor:move;
-
-}
-
-.content{
-
-padding:10px;
-
 background:white;
-
 }
 
-/* desktop */
-
-.desktop{
-
-display:flex;
-
-flex-direction:column;
-
-gap:20px;
-
-padding:20px;
-
-}
-
-/* ícones */
-
-.icon{
-
-width:80px;
-
-text-align:center;
-
-color:white;
-
-cursor:pointer;
-
-}
-
-.icon img{
-
-width:48px;
-
-}
-.window{
-
-width:300px;
-
-background:#c0c0c0;
-
-border:2px solid black;
-
-position:absolute;
-
-top:150px;
-
-left:200px;
-
-display:none;
-
-}
-
-.title-bar{
-
-background:#000080;
-
-color:white;
-
-padding:5px;
-
-display:flex;
-
-justify-content:space-between;
-
-cursor:move;
-
-}
-
-.content{
-
-padding:10px;
-
-background:white;
-
-}
