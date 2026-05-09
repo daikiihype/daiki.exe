@@ -2,7 +2,7 @@ body{
 min-height:100vh;
 width:100%;
 
-background-image:url("../Imagens/fundo3.png");
+background-image:url("../static/Imagens/rei.jpg");
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
@@ -21,7 +21,7 @@ text-align: center;
 
 background:
 linear-gradient(rgba(153, 251, 238, 0.522), rgba(0, 0, 0, 0.6)),
-url("../static/Imagens/fundo3.png");
+url("../static/Imagens/rei.jpg");
 
 background-size:cover;
 background-position:center;
