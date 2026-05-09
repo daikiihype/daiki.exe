@@ -1,123 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
-
 <meta charset="UTF-8">
+<title>DAIKI.EXE</title>
 
 <link rel="stylesheet" href="../static/pag4.css">
-
-<title>DAIKI LAB</title>
 
 </head>
 
 <body>
 
-<div id="particles-js"></div>
 
-<h1 class="lab-title">DAIKI LAB</h1>
+<div class="cenario">
 
-<section class="lab-section">
+<img src="../static/Imagens/parede.png" class="background">
 
-<h2>BOTÕES EXPERIMENTAIS</h2>
 
-<button class="neon-btn">HYPE</button>
+<img src="../static/Imagens/controle.png" class="item controle" data-item="controle">
 
-</section>
+<img src="../static/Imagens/manga.png" class="item manga" data-item="manga">
 
-<section class="lab-section">
+<img src="../static/Imagens/asma.png" class="item bombinha" data-item="bombinha">
 
-<h2>CARDS INTERATIVOS</h2>
+<img src="../static/Imagens/psote.png" class="item poster" data-item="poster">
 
-<div class="card-container">
+<img src="../static/Imagens/notebook.png" class="item notebook" data-item="notebook">
 
-<div class="card">
-<h3>Experimento 01</h3>
-<p>Testando interações 3D com CSS.</p>
-</div>
-
-<div class="card">
-<h3>Experimento 02</h3>
-<p>Movimento baseado na posição do mouse.</p>
-</div>
-
-<div class="card">
-<h3>Experimento 03</h3>
-<p>Efeitos visuais para interfaces modernas.</p>
-</div>
 
 </div>
 
-</section>
-<script>
-    
 
-const cards = document.querySelectorAll(".card");
+<div id="dialogBox" class="dialog hidden">
 
-cards.forEach(card => {
+<p id="dialogText"></p>
 
-card.addEventListener("mousemove", (e)=>{
+<div class="choices">
 
-const rect = card.getBoundingClientRect();
+<button id="choice1"></button>
+<button id="choice2"></button>
+<button id="choice3"></button>
 
-const x = e.clientX - rect.left;
+</div>
 
-const y = e.clientY - rect.top;
+</div>
 
-const centerX = rect.width / 2;
-const centerY = rect.height / 2;
 
-const rotateX = -(y - centerY) / 10;
-const rotateY = (x - centerX) / 10;
-
-card.style.transform =
-`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-});
-
-card.addEventListener("mouseleave", ()=>{
-
-card.style.transform = "rotateX(0) rotateY(0)";
-
-});
-
-});
-
-</script>
-
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-
-particlesJS("particles-js", {
-
-particles:{
-
-number:{value:80},
-
-size:{value:3},
-
-move:{speed:2},
-
-line_linked:{
-enable:true,
-distance:150
-}
-
-}
-
-});
-
-</script>
-
-<section class="lab-section">
-
-<h2>GLITCH TEXT</h2>
-
-<h1 class="glitch" data-text="DAIKI SYSTEM">
-DAIKI SYSTEM
-</h1>
-
-</section>
+<script src="../static/retro.js"></script>
 
 </body>
 
