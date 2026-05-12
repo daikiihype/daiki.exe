@@ -113,3 +113,37 @@ function scrollGallery(direction) {
         behavior: "smooth"
     });
 }
+window.addEventListener("load", () => {
+
+setTimeout(() => {
+
+document.getElementById("boot-screen").style.opacity = "0";
+
+setTimeout(() => {
+
+document.getElementById("boot-screen").style.display = "none";
+
+},1000);
+
+},5000);
+
+});
+
+const symbols = document.querySelectorAll(".symbols span");
+
+symbols.forEach(symbol => {
+
+symbol.style.left = Math.random() * 100 + "vw";
+
+symbol.style.top = 100 + Math.random() * 50 + "vh";
+
+symbol.style.animationDuration =
+10 + Math.random() * 20 + "s";
+
+symbol.style.animationDelay =
+Math.random() * 15 + "s";
+
+symbol.style.fontSize =
+12 + Math.random() * 25 + "px";
+
+});
