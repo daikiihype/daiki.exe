@@ -3,52 +3,61 @@
 
 <head>
 <meta charset="UTF-8">
-<title>DAIKI.EXE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAIKI.EXE - Point Click</title>
 
 <link rel="stylesheet" href="../static/pag4.css">
 <link rel="stylesheet" href="../static/back-button.css">
 
 </head>
 
-<body>
+<body class="game-page">
 
 <a href="hub.html" class="hub-back" aria-label="Voltar para o hub">back</a>
 
-<div class="cenario">
+<main class="game-shell" id="game">
 
-<img src="../static/Imagens/parede.png" class="background">
-
-
-<img src="../static/Imagens/controle.png" class="item controle" data-item="controle">
-
-<img src="../static/Imagens/manga.png" class="item manga" data-item="manga">
-
-<img src="../static/Imagens/asma.png" class="item bombinha" data-item="bombinha">
-
-<img src="../static/Imagens/psote.png" class="item poster" data-item="poster">
-
-<img src="../static/Imagens/notebook.png" class="item notebook" data-item="notebook">
-
-
+<header class="game-hud" aria-label="Interface do jogo">
+<div>
+<span class="hud-kicker">DAIKI.EXE</span>
+<h1>POINT CLICK</h1>
 </div>
 
+<div class="hud-status">
+<span id="sceneName">QUARTO</span>
+<span id="nostalgiaScore">NOSTALGIA 0</span>
+<span id="connectionScore">CONNECTION 0</span>
+</div>
+</header>
 
-<div id="dialogBox" class="dialog hidden">
+<section class="scene-wrap" aria-label="Cena atual">
+<div id="scene" class="scene" data-scene="quarto">
+<div class="scene-glow"></div>
+<div id="hotspots" class="hotspots"></div>
+</div>
+</section>
 
+<aside id="dialogBox" class="dialog hidden" aria-live="polite">
+<div id="dialogName" class="dialog-name">DAIKI</div>
 <p id="dialogText"></p>
+<div id="choiceBox" class="choices"></div>
+<button id="dialogNext" class="dialog-next" type="button">avancar</button>
+</aside>
 
-<div class="choices">
-
-<button id="choice1"></button>
-<button id="choice2"></button>
-<button id="choice3"></button>
-
+<section id="endingScreen" class="ending-screen hidden" aria-live="polite">
+<div class="ending-panel">
+<span id="endingCode" class="ending-code">ENDING</span>
+<h2 id="endingTitle"></h2>
+<p id="endingText"></p>
+<button id="restartGame" type="button">reiniciar</button>
 </div>
+</section>
 
-</div>
+</main>
 
+<div class="crt-overlay" aria-hidden="true"></div>
 
-<script src="../static/retro.js"></script>
+<script src="../static/pag4.js"></script>
 
 </body>
 

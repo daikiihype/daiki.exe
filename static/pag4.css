@@ -1,135 +1,497 @@
-body{
+/* DAIKI.EXE point-and-click prototype */
 
-background:rgb(0, 0, 0);
-color:white;
-font-family:Arial;
-text-align:center;
-
+* {
+  box-sizing: border-box;
 }
 
-.titulo{
-
-margin-top:30px;
-letter-spacing:4px;
-
+html,
+body {
+  margin: 0;
+  min-height: 100%;
 }
 
-.cenario{
-
-position:relative;
-width:all;
-margin:auto;
-
+body.game-page {
+  min-height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(0, 229, 255, 0.18), transparent 34%),
+    radial-gradient(circle at 80% 90%, rgba(156, 48, 255, 0.18), transparent 30%),
+    linear-gradient(135deg, #070817 0%, #111136 54%, #05050e 100%);
+  font-family: monospace;
 }
 
-.background{
-
-width:100%;
-
+body.game-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.09) 1px, transparent 1px);
+  background-size: 54px 54px;
+  animation: gridDrift 12s linear infinite;
 }
 
-
-.item{
-
-position:absolute;
-width:80px;
-cursor:pointer;
-transition:0.2s;
-
+.game-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 18px;
+  width: min(1180px, calc(100vw - 32px));
+  height: min(760px, calc(100vh - 32px));
+  margin: 16px auto;
+  padding: 16px;
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  background: rgba(5, 8, 24, 0.72);
+  box-shadow:
+    0 0 26px rgba(0, 229, 255, 0.32),
+    inset 0 0 32px rgba(0, 229, 255, 0.08);
+  backdrop-filter: blur(8px);
 }
 
-.item:hover{
-
-transform:scale(1.2);
-filter:drop-shadow(0 0 10px cyan);
-
+.game-hud {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(0, 229, 255, 0.26);
+  padding-left: 130px;
+  padding-bottom: 12px;
 }
 
-
-
-/* POSIÇÃO DOS ITENS */
-
-.controle{
-
-bottom:679px;
-left:900px;
-
+.hud-kicker {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(0, 229, 255, 0.78);
+  font-size: 12px;
+  letter-spacing: 3px;
 }
 
-.manga{
-
-bottom:120px;
-left:260px;
-
+.game-hud h1 {
+  margin: 0;
+  color: #00e5ff;
+  font-size: 34px;
+  letter-spacing: 0;
+  text-shadow:
+    0 0 8px #00e5ff,
+    0 0 24px rgba(0, 229, 255, 0.8);
+  animation: softGlitch 5s steps(2, end) infinite;
 }
 
-.bombinha{
-
-bottom:120px;
-right:250px;
-
+.hud-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
-.poster{
-
-top:100px;
-left:350px;
-
+.hud-status span {
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  padding: 7px 10px;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(0, 0, 0, 0.28);
+  box-shadow: inset 0 0 12px rgba(0, 229, 255, 0.08);
+  font-size: 12px;
 }
 
-.notebook{
-
-bottom:120px;
-right:120px;
-
+.scene-wrap {
+  min-height: 0;
 }
 
-
-
-/* DIALOGO */
-
-.dialog{
-
-position:fixed;
-bottom:40px;
-left:50%;
-transform:translateX(-50%);
-
-width:500px;
-background:#111;
-border:2px solid cyan;
-padding:20px;
-
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 95, 255, 0.32);
+  background-color: #090a1a;
+  background-position: center;
+  background-size: cover;
+  box-shadow:
+    inset 0 0 80px rgba(0, 0, 0, 0.75),
+    inset 0 0 28px rgba(0, 229, 255, 0.2);
+  transition:
+    filter 0.3s,
+    opacity 0.3s,
+    background-image 0.3s;
 }
 
-.hidden{
-
-display:none;
-
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(transparent 0%, rgba(0, 0, 0, 0.2) 58%, rgba(0, 0, 0, 0.58) 100%),
+    radial-gradient(circle at 50% 45%, transparent 0%, rgba(0, 0, 0, 0.48) 82%);
+  z-index: 1;
 }
 
-.choices{
-
-margin-top:15px;
-display:flex;
-flex-direction:column;
-gap:10px;
-
+.scene.is-changing {
+  opacity: 0.35;
+  filter: blur(4px) saturate(1.8);
 }
 
-.choices button{
-
-background:black;
-color:white;
-border:1px solid cyan;
-padding:10px;
-cursor:pointer;
-
+.scene-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 42% 55%, rgba(0, 229, 255, 0.13), transparent 28%),
+    radial-gradient(circle at 70% 18%, rgba(161, 64, 255, 0.16), transparent 24%);
+  mix-blend-mode: screen;
 }
 
-.choices button:hover{
+.hotspots {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
 
-background:cyan;
-color:black;
+.hotspot {
+  position: absolute;
+  display: block;
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  background: rgba(0, 229, 255, 0.03);
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+}
 
+.hotspot::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(255, 255, 255, 0);
+  transition: border-color 0.2s;
+}
+
+.hotspot::after {
+  content: attr(data-hover);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  width: max-content;
+  max-width: 220px;
+  transform: translateX(-50%);
+  padding: 6px 9px;
+  color: #050816;
+  background: #00e5ff;
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.75);
+  font-size: 12px;
+  line-height: 1.2;
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+
+.hotspot:hover,
+.hotspot:focus-visible {
+  border-color: rgba(0, 229, 255, 0.95);
+  background: rgba(0, 229, 255, 0.1);
+  box-shadow:
+    0 0 18px rgba(0, 229, 255, 0.72),
+    inset 0 0 20px rgba(0, 229, 255, 0.12);
+  outline: none;
+  transform: scale(1.02);
+}
+
+.hotspot:hover::before,
+.hotspot:focus-visible::before {
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.hotspot:hover::after,
+.hotspot:focus-visible::after {
+  opacity: 1;
+}
+
+.dialog {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 50;
+  width: min(860px, calc(100vw - 32px));
+  transform: translateX(-50%);
+  border: 1px solid rgba(0, 229, 255, 0.75);
+  background: rgba(5, 8, 24, 0.9);
+  box-shadow:
+    0 0 24px rgba(0, 229, 255, 0.42),
+    inset 0 0 26px rgba(148, 95, 255, 0.12);
+  padding: 18px 20px 16px;
+  backdrop-filter: blur(9px);
+}
+
+.dialog-name {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #00e5ff;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 12px rgba(0, 229, 255, 0.85);
+}
+
+.dialog p {
+  min-height: 48px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.dialog-next,
+.choices button,
+.ending-panel button {
+  border: 1px solid #00e5ff;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.32);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.22);
+  cursor: pointer;
+  font-family: monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+
+.dialog-next {
+  margin-top: 14px;
+  padding: 10px 16px;
+}
+
+.choices {
+  display: grid;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.choices button {
+  width: 100%;
+  padding: 11px 13px;
+  text-align: left;
+}
+
+.dialog-next:hover,
+.choices button:hover,
+.ending-panel button:hover,
+.dialog-next:focus-visible,
+.choices button:focus-visible,
+.ending-panel button:focus-visible {
+  color: #050816;
+  background: #00e5ff;
+  box-shadow:
+    0 0 16px rgba(0, 229, 255, 0.9),
+    0 0 34px rgba(148, 95, 255, 0.35);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.ending-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #03040a;
+  animation: endingFade 1.4s ease forwards;
+}
+
+.ending-panel {
+  width: min(760px, 100%);
+  border: 1px solid rgba(0, 229, 255, 0.5);
+  padding: 42px 34px;
+  text-align: center;
+  background: rgba(4, 6, 18, 0.9);
+  box-shadow:
+    0 0 36px rgba(0, 229, 255, 0.2),
+    inset 0 0 38px rgba(0, 229, 255, 0.08);
+}
+
+.ending-code {
+  color: #00e5ff;
+  letter-spacing: 4px;
+  text-shadow: 0 0 16px rgba(0, 229, 255, 0.8);
+}
+
+.ending-panel h2 {
+  margin: 20px 0;
+  font-size: 42px;
+  letter-spacing: 0;
+}
+
+.ending-panel p {
+  margin: 0 auto 28px;
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.ending-panel button {
+  padding: 12px 20px;
+}
+
+.ending-screen.ending-room {
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px),
+    #010105;
+}
+
+.ending-screen.ending-empty {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.08), transparent 38%),
+    #060914;
+}
+
+.ending-screen.ending-memory {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(0, 229, 255, 0.2), transparent 32%),
+    radial-gradient(circle at 28% 64%, rgba(156, 48, 255, 0.18), transparent 28%),
+    #070817;
+}
+
+.ending-screen.ending-secret {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), transparent 18%),
+    linear-gradient(135deg, #dffaff 0%, #63eaff 45%, #071a44 100%);
+}
+
+.ending-screen.ending-secret .ending-panel {
+  color: #03102c;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.ending-screen.ending-secret .ending-code {
+  color: #0609c9;
+}
+
+.ending-screen.ending-secret .ending-panel p {
+  color: rgba(3, 16, 44, 0.78);
+}
+
+.ending-screen.ending-secret .ending-panel button {
+  border-color: #0609c9;
+  color: #03102c;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 16px rgba(6, 9, 201, 0.24);
+}
+
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.035),
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+@keyframes gridDrift {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 54px 54px;
+  }
+}
+
+@keyframes softGlitch {
+  0%,
+  88%,
+  100% {
+    transform: translateX(0);
+    filter: none;
+  }
+
+  90% {
+    transform: translateX(2px);
+    filter: hue-rotate(30deg);
+  }
+
+  92% {
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes endingFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  body.game-page {
+    overflow-y: auto;
+  }
+
+  .game-shell {
+    width: calc(100vw - 18px);
+    height: auto;
+    min-height: calc(100vh - 18px);
+    margin: 9px auto;
+    padding: 12px;
+  }
+
+  .game-hud {
+    flex-direction: column;
+    padding-left: 0;
+    padding-top: 46px;
+  }
+
+  .game-hud h1 {
+    font-size: 28px;
+  }
+
+  .hud-status {
+    justify-content: flex-start;
+  }
+
+  .scene {
+    min-height: 62vh;
+  }
+
+  .dialog {
+    bottom: 14px;
+    padding: 15px;
+  }
+
+  .dialog p {
+    font-size: 15px;
+  }
+
+  .ending-panel {
+    padding: 32px 20px;
+  }
+
+  .ending-panel h2 {
+    font-size: 30px;
+  }
 }
