@@ -29,7 +29,13 @@ window.location.href = url
 })
 setTimeout(() => {
 
-document.getElementById("boot-screen").style.display = "none";
+const bootScreen = document.getElementById("boot-screen");
+
+if (bootScreen) {
+
+bootScreen.style.display = "none";
+
+}
 
 }, 4500);
 
@@ -115,19 +121,34 @@ function scrollGallery(direction) {
 }
 window.addEventListener("load", () => {
 
+const bootScreen = document.getElementById("boot-screen");
+
+if (!bootScreen) return;
+
 setTimeout(() => {
 
-document.getElementById("boot-screen").style.opacity = "0";
+bootScreen.style.opacity = "0";
 
 setTimeout(() => {
 
-document.getElementById("boot-screen").style.display = "none";
+bootScreen.style.display = "none";
 
 },1000);
 
 },5000);
 
 });
+
+if (document.querySelector(".mouse-light")) {
+
+document.addEventListener("mousemove", e => {
+
+document.documentElement.style.setProperty("--x", e.clientX + "px");
+document.documentElement.style.setProperty("--y", e.clientY + "px");
+
+});
+
+}
 
 const symbols = document.querySelectorAll(".symbols span");
 
