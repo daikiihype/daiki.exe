@@ -1,64 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAIKI.EXE - Memory Sync</title>
 
+<link rel="icon" type="image/svg+xml" href="../static/Imagens/daiki-favicon.svg">
 <link rel="stylesheet" href="../static/pag6.css">
 <link rel="stylesheet" href="../static/back-button.css">
-
-<title>DAIKI GAME</title>
-
 </head>
-<body>
+
+<body class="sync-page">
 
 <a href="hub.html" class="hub-back" aria-label="Voltar para o hub">back</a>
 
-<h1 class="title">Menu De Escolha</h1>
+<main class="sync-shell" id="syncApp">
 
-<div class="menu">
-
-<a href="pag1.html" class="menu-btn"
-><span class="selector">></span>Isso</a>
-
-<a href="pag2.html" class="menu-btn"><span class="selector">></span>realmente</a>
-
-<a href="lab.html" class="menu-btn"><span class="selector">></span>brilha</a>
-
-<a href="system.html" class="menu-btn"><span class="selector">></span>tanto?</a>
-
+<header class="sync-topbar">
+<div>
+<span class="system-id">DAIKI.EXE / EMOTIONAL SYNC TEST</span>
+<h1>emotional_sync.elf</h1>
 </div>
-<div id="transition"></div>
+
+<div class="sync-hud">
+<span id="progressLabel">FRAGMENT 01/07</span>
+<button id="audioToggle" class="system-button" type="button">audio off</button>
+<button id="restartTest" class="system-button" type="button">reset</button>
+</div>
+</header>
+
+<section class="diagnostic-stage" aria-live="polite">
+<aside class="sync-rail" aria-label="Progresso da sincronizacao">
+<span class="rail-label">SYNC</span>
+<ol id="progressRail">
+<li class="rail-node">01</li>
+<li class="rail-node">02</li>
+<li class="rail-node">03</li>
+<li class="rail-node">04</li>
+<li class="rail-node">05</li>
+<li class="rail-node">06</li>
+<li class="rail-node">07</li>
+</ol>
+<span class="rail-readout">memory route</span>
+</aside>
+
+<section class="sync-console">
+<div class="terminal-strip" aria-hidden="true">
+<span id="statusLine">syncing memories...</span>
+<span>CRT: ACTIVE</span>
+<span>USER: DAIKI?</span>
+</div>
+
+<div class="sync-core" aria-hidden="true">
+<div class="core-frame"></div>
+<span class="core-text">DAIKI</span>
+</div>
+
+<section id="questionPanel" class="question-panel">
+<div class="question-copy">
+<span id="questionIndex" class="question-index">01</span>
+<h2 id="questionText"></h2>
+</div>
+<div id="optionsList" class="options-list"></div>
+</section>
+
+<section id="analyzePanel" class="analyze-panel hidden">
+<div class="loader-grid" aria-hidden="true"></div>
+<h2>analyzing memory fragments...</h2>
+<p id="analyzeLine">building emotional profile...</p>
+</section>
+
+<section id="resultPanel" class="result-panel hidden">
+<span class="result-kicker">PROFILE COMPLETE</span>
+<h2 id="resultTitle"></h2>
+<p id="resultDescription"></p>
+<p class="welcome-line">welcome back, daiki.</p>
+<button id="retakeTest" class="system-button result-button" type="button">run sync again</button>
+</section>
+</section>
+</section>
+
+<aside class="memory-log" aria-label="Registro do sistema">
+<span>LOG</span>
+<p id="memoryLog">O sistema esta reconstruindo o perfil do usuario.</p>
+</aside>
+
+</main>
+
+<div class="floating-words" aria-hidden="true">
+<span>loading emotional archive...</span>
+<span>fragment recovered</span>
+<span>save file detected</span>
+<span>who is daiki?</span>
+<span>sync complete?</span>
+</div>
+
+<div id="cursorGlow" class="cursor-glow" aria-hidden="true"></div>
+<div id="screenFlash" class="screen-flash" aria-hidden="true"></div>
+<div class="crt-overlay" aria-hidden="true"></div>
+
+<script src="../static/pag6.js"></script>
+
 </body>
-<script>
-
-const links = document.querySelectorAll(".menu-btn");
-
-const transition = document.getElementById("transition");
-
-links.forEach(link => {
-
-link.addEventListener("click", function(e){
-
-e.preventDefault();
-
-let url = this.href;
-
-transition.classList.add("active");
-
-setTimeout(()=>{
-
-window.location = url;
-
-},600);
-
-});
-
-});
-
-</script>
 
 </html>
-
-

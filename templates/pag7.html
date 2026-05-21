@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAIKI.EXE - Memory</title>
+
+<link rel="stylesheet" href="../static/pag7.css">
+<link rel="stylesheet" href="../static/back-button.css">
+</head>
+
+<body class="memory-page" data-depth="0">
+
+<a href="hub.html" class="hub-back" aria-label="Voltar para o hub">back</a>
+
+<main class="memory-os" id="memoryGame">
+
+<section class="memory-header" aria-label="Interface do jogo">
+<div>
+<span class="system-label">DAIKI.EXE / MEMORY RECONSTRUCTION</span>
+<h1>memorys_cache.exe</h1>
+</div>
+
+<div class="memory-stats">
+<span id="movesCount">MOVES 00</span>
+<span id="pairsCount">PAIRS 0/4</span>
+<button id="soundToggle" class="system-button" type="button">audio off</button>
+<button id="resetGame" class="system-button" type="button">reset</button>
+</div>
+</section>
+
+<section class="memory-stage" aria-label="Jogo da memoria">
+<div class="subliminal" aria-hidden="true">
+<span>save</span>
+<span>continue</span>
+<span>memory</span>
+<span>2004</span>
+<span>player 2</span>
+<span>offline</span>
+<span>load?</span>
+<span>childhood</span>
+</div>
+
+<div id="memoryGrid" class="memory-grid"></div>
+
+<aside class="memory-terminal" aria-live="polite">
+<span class="terminal-title">UNLOCKED MEMORY</span>
+<p id="memoryMessage">Encontre pares para reconstruir fragmentos do Daiki.</p>
+</aside>
+</section>
+
+</main>
+
+<section id="finalOverlay" class="final-overlay hidden" aria-live="polite">
+<div class="final-blackout">
+<p id="finalQuestion">Voce ainda lembra?</p>
+<button id="finalFolder" class="final-folder hidden" type="button">memória_final.zip</button>
+<p id="finalMessage" class="final-message hidden">
+Dentro do arquivo nao tinha resposta. So uma segunda cadeira, um controle extra e a sensacao de que alguem ainda podia apertar start com voce.
+</p>
+<button id="finalReset" class="final-reset hidden" type="button">reconstruir memorias</button>
+</div>
+</section>
+
+<div class="crt-layer" aria-hidden="true"></div>
+<div id="hitFlash" class="hit-flash" aria-hidden="true"></div>
+
+<script src="../static/pag7.js"></script>
+
+</body>
+
+</html>
